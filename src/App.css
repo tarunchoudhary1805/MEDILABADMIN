@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #e0dfdf;
+}
+.card-img {
+  /* padding: 0; */
+  /* background-color: red; */
+  width: 12%;
+  /* height: 10vh;  */
+  /* border-radius: 50px; */
+}
+.card {
+  box-shadow: 5px 5px 26px #c4c4c4, -5px -5px 26px #c4c4c4;
+}
+.cardd {
+  width: 60%;
+  margin: 0 auto;
+}
+.card .img {
+  /* height: 40vh; */
+  /* margin: 2%; */
+}
+
+@media screen and (max-width: 600px) {
+  .cardd {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
