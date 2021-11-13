@@ -88,30 +88,7 @@ const Blog = () => {
     setLoading(false);
   };
 
-  const handleEdit = async (image, e) => {
-    setLoading(true);
-    const response2 = await fetch(
-      `https://vardaa.herokuapp.com/editBlog/${editBlog._id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(image),
-      }
-    );
-    const val2 = await response2.json();
-
-    //   .then((res) => res.json())
-    //   .catch((err) => console.log(err));
-    if (val2) {
-      const value = [...images];
-      value[i] = image;
-      setImages(value);
-      setLoading(false);
-      setEdit(false);
-    }
-  };
+ 
   if (!state.isAuth) {
     return <Redirect to="/login" />;
   } else {
@@ -130,13 +107,7 @@ const Blog = () => {
         {show && <Add submit={(image) => submit(image)} />}
         <br />
         <br />
-        {edit && (
-          <Edit
-            Blog={editBlog}
-            cancel={() => setEdit(!edit)}
-            handleEdit={(image) => handleEdit(image)}
-          />
-        )}
+        
         <div className="text-center">
           {loading && (
             <div class="spinner-border text-center" role="status">
@@ -161,16 +132,7 @@ const Blog = () => {
                         />
                       </div>
                       <div className="d-flex justify-content-center mx-2 my-2">
-                        <button
-                          className="btn btn-success mx-2"
-                          onClick={() => {
-                            setEditBlog(image);
-                            setEdit(true);
-                            setI(i);
-                          }}
-                        >
-                          Edit
-                        </button>
+                         
                         <button
                           className="btn btn-danger mx-2"
                           onClick={() => handleDelete(i, image._id)}
