@@ -66,22 +66,26 @@ const Blog = () => {
 
   const handleDelete = async (i, id) => {
     setLoading(true);
-    const response2 = await fetch(
-      `https:vardaa.herokuapp.com/deleteBlog/${id}`,
-      {
-        method: "DELETE",
+    try {
+      const response2 = await fetch(
+        `https:vardaa.herokuapp.com/deleteBlog/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+      const val1 = await response2.json();
+
+      //   .then((res) => res.json())
+      //   .catch((err) => console.log(err));
+
+      if (val1) {
+        const d1 = [...blogs];
+        d1.splice(i, 1);
+        // toast("Blog Deleted Successfully");
+        setBlogs(d1);
       }
-    );
-    const val1 = await response2.json();
-
-    //   .then((res) => res.json())
-    //   .catch((err) => console.log(err));
-
-    if (val1) {
-      const d1 = [...blogs];
-      d1.splice(i, 1);
-      // toast("Blog Deleted Successfully");
-      setBlogs(d1);
+    } catch (error) {
+      console.log(error.message);
     }
     setLoading(false);
   };
