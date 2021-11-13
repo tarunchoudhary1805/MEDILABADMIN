@@ -68,7 +68,7 @@ const Blog = () => {
     setLoading(true);
     try {
       const response2 = await fetch(
-        `https:vardaa.herokuapp.com/deleteBlog/${id}`,
+        `https://vardaa.herokuapp.com/deleteBlog/${id}`,
         {
           method: "DELETE",
         }
@@ -92,7 +92,7 @@ const Blog = () => {
 
   const handleEdit = async (blog, e) => {
     setLoading(true);
-    const response2 = await fetch(`https:vardaa.herokuapp.com/updateBlogs`, {
+    const response2 = await fetch(`https://vardaa.herokuapp.com/updateBlogs`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

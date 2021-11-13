@@ -69,7 +69,7 @@ const Blog = () => {
   const handleDelete = async (i, id) => {
     setLoading(true);
     const response2 = await fetch(
-      `https:vardaa.herokuapp.com/deleteGallery/${id}`,
+      `https://vardaa.herokuapp.com/deleteGallery/${id}`,
       {
         method: "DELETE",
       }
@@ -91,7 +91,7 @@ const Blog = () => {
   const handleEdit = async (image, e) => {
     setLoading(true);
     const response2 = await fetch(
-      `https:vardaa.herokuapp.com/editBlog/${editBlog._id}`,
+      `https://vardaa.herokuapp.com/editBlog/${editBlog._id}`,
       {
         method: "PUT",
         headers: {
